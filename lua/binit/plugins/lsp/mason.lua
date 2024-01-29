@@ -1,12 +1,12 @@
 return {
     "williamboman/mason.nvim",
-    dependencies={
+    dependencies = {
         'neovim/nvim-lspconfig',
         "williamboman/mason-lspconfig.nvim",
         'hrsh7th/cmp-nvim-lsp', --
-      'folke/neodev.nvim',
+        'folke/neodev.nvim',
     },
-    config=function()
+    config = function()
         require('neodev').setup()
         local mason = require("mason")
         local mason_lspconfig = require("mason-lspconfig")
@@ -29,7 +29,7 @@ return {
                 if desc then
                     desc = 'LSP: ' .. desc
                 end
-                vim.keymap.set('n', keys, func, {buffer=bufnr, desc=desc})
+                vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
             end
 
             nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
@@ -51,50 +51,49 @@ return {
             nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
             nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
             nmap('<leader>wl', function()
-            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+                print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
             end, '[W]orkspace [L]ist Folders')
 
             -- Create a command `:Format` local to the LSP buffer
             vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-            vim.lsp.buf.format()
+                vim.lsp.buf.format()
             end, { desc = 'Format current buffer with LSP' })
-
         end
 
 
         mason.setup({
-          ui = {
-            icons = {
-              package_pending = " ",
-              package_installed = "󰄳 ",
-              package_uninstalled = " 󰚌",
-            },
+            ui = {
+                icons = {
+                    package_pending = " ",
+                    package_installed = "󰄳 ",
+                    package_uninstalled = " 󰚌",
+                },
 
-            keymaps = {
-              toggle_server_expand = "<CR>",
-              install_server = "i",
-              update_server = "u",
-              check_server_version = "c",
-              update_all_servers = "U",
-              check_outdated_servers = "C",
-              uninstall_server = "X",
-              cancel_installation = "<C-c>",
+                keymaps = {
+                    toggle_server_expand = "<CR>",
+                    install_server = "i",
+                    update_server = "u",
+                    check_server_version = "c",
+                    update_all_servers = "U",
+                    check_outdated_servers = "C",
+                    uninstall_server = "X",
+                    cancel_installation = "<C-c>",
+                },
             },
-          },
         })
 
         mason_lspconfig.setup({
-            ensure_installed=vim.tbl_keys(servers),
-            automatic_installation=true,
+            ensure_installed = vim.tbl_keys(servers),
+            automatic_installation = true,
         })
 
         mason_lspconfig.setup_handlers({
-            function (server_name)
+            function(server_name)
                 require("lspconfig")[server_name].setup {
                     on_attach = on_attach,
-                    capabilities=capabilities,
-                    settings=servers[server_name],
-                    filetypes= (servers[server_name] or {}).filetypes
+                    capabilities = capabilities,
+                    settings = servers[server_name],
+                    filetypes = (servers[server_name] or {}).filetypes
                 }
             end
         })
