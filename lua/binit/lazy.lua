@@ -14,7 +14,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({ { import = "binit.plugins" }}, {
+require("lazy").setup({ { import = "binit.plugins" }, {import="binit.plugins.lsp"}, {import="binit.customs"}}, {
   install = {
     colorscheme = { "nightfly" },
   },
