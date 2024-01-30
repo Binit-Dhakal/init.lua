@@ -13,8 +13,8 @@ return {
 
     nvimtree.setup({
       filters = {
-        dotfiles = false,
-        exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
+        dotfiles = true,
+        -- exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
       },
       disable_netrw = true,
       hijack_netrw = true,
@@ -27,12 +27,12 @@ return {
       },
       view = {
         adaptive_size = false,
-        side = "left",
-        width = 30,
+        side = "right",
+        width = 50,
         preserve_window_proportions = true,
       },
       git = {
-        enable = false,
+        enable = true,
         ignore = true,
       },
       filesystem_watchers = {

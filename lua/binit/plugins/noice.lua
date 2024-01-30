@@ -3,7 +3,6 @@ return {
   event = "VeryLazy",
   dependencies = {
     "MunifTanjim/nui.nvim",
-    "rcarriga/nvim-notify"
   },
   config = function()
     require("noice").setup({
@@ -23,6 +22,9 @@ return {
         inc_rename = false,           -- enables an input dialog for inc-rename.nvim
         lsp_doc_border = false,       -- add a border to hover docs and signature help
       },
+      notify = {
+        enabled = false,
+      }
     })
   end
 

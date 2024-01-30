@@ -15,6 +15,19 @@ return {
     local telescope = require("telescope")
 
     telescope.setup {
+      pickers = {
+        buffers = {
+          show_all_buffers = true,
+          sort_lastused = true,
+          theme = "dropdown",
+          previewer = false,
+          mappings = {
+            i = {
+              ["<c-d>"] = "delete_buffer"
+            }
+          }
+        }
+      },
       defaults = {
         vimgrep_arguments = {
           "rg",
@@ -47,10 +60,11 @@ return {
           preview_cutoff = 120,
         },
         file_sorter = require("telescope.sorters").get_fuzzy_file,
-        file_ignore_patterns = { "node_modules", "venv" },
+        file_ignore_patterns = { "node_modules", "venv", '.git' },
         generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
         path_display = { "truncate" },
         winblend = 0,
+
         border = {},
         borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
         color_devicons = true,
