@@ -1,20 +1,20 @@
 vim.g.mapleader = ' '
-vim.g.maplocalleader=' '
+vim.g.maplocalleader = ' '
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system{
-        'git',
-        'clone',
-        '--filter=blob:none',
-        'https://github.com/folke/lazy.nvim.git',
-        '--branch=stable',
-        lazypath
-    }
+  vim.fn.system {
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable',
+    lazypath
+  }
 end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({ { import = "binit.plugins" }, {import="binit.plugins.lsp"}, {import="binit.customs"}}, {
+require("lazy").setup({ { import = "binit.plugins" }, { import = "binit.plugins.lsp" }, { import = "binit.customs" } }, {
   install = {
     colorscheme = { "nightfly" },
   },
@@ -29,7 +29,7 @@ require("lazy").setup({ { import = "binit.plugins" }, {import="binit.plugins.lsp
 
 
 -- require('lazy').setup({
---     
+--
 --     -- Git related plugins
 --     'tpope/vim-fugitive',
 --     'tpope/vim-rhubarb',
@@ -43,7 +43,7 @@ require("lazy").setup({ { import = "binit.plugins" }, {import="binit.plugins.lsp
 --         dependencies={
 --             {'williamboman/mason.nvim', config=true},
 --             'williamboman/mason-lspconfig.nvim',
---             
+--
 --             {'j-hui/fidget.nvim', opts={}},
 --             'folke/neodev.nvim'
 --         },
@@ -57,12 +57,12 @@ require("lazy").setup({ { import = "binit.plugins" }, {import="binit.plugins.lsp
 --         end
 --
 --     },
---     
+--
 --     {
 --         'folke/which-key.nvim', opts={}
 --     },
---     
---  
+--
+--
 --
 --   {
 --     'nvim-lualine/lualine.nvim',
@@ -83,14 +83,14 @@ require("lazy").setup({ { import = "binit.plugins" }, {import="binit.plugins.lsp
 --     opts={}
 --   },
 --
---   
+--
 --
 --   --
 --   ,
 --
---   
+--
 
-   
+
 --
 -- }, {})
 --

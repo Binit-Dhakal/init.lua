@@ -1,14 +1,14 @@
-return { 
-    'nvim-tree/nvim-tree.lua',
-    keys={"<C-n>"},
-    dependencies={
-      "nvim-tree/nvim-web-devicons"
-    },
-    config=function()
+return {
+  'nvim-tree/nvim-tree.lua',
+  keys = { "<leader>n" },
+  dependencies = {
+    "nvim-tree/nvim-web-devicons"
+  },
+  config = function()
     local nvimtree = require("nvim-tree")
 
     -- recommended setting from nvim-tree docs
-    vim.g.loaded_netrw=1
+    vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
 
     nvimtree.setup({
@@ -48,48 +48,48 @@ return {
         highlight_git = false,
         highlight_opened_files = "none",
 
-      indent_markers = {
-        enable = false,
-      },
-
-      icons = {
-        show = {
-          file = true,
-          folder = true,
-          folder_arrow = true,
-          git = false,
+        indent_markers = {
+          enable = false,
         },
 
-        glyphs = {
-          default = "󰈚",
-          symlink = "",
-          folder = {
-            default = "",
-            empty = "",
-            empty_open = "",
-            open = "",
-            symlink = "",
-            symlink_open = "",
-            arrow_open = "",
-            arrow_closed = "",
+        icons = {
+          show = {
+            file = true,
+            folder = true,
+            folder_arrow = true,
+            git = false,
           },
-          git = {
-            unstaged = "✗",
-            staged = "✓",
-            unmerged = "",
-            renamed = "➜",
-            untracked = "★",
-            deleted = "",
-            ignored = "◌",
+
+          glyphs = {
+            default = "󰈚",
+            symlink = "",
+            folder = {
+              default = "",
+              empty = "",
+              empty_open = "",
+              open = "",
+              symlink = "",
+              symlink_open = "",
+              arrow_open = "",
+              arrow_closed = "",
+            },
+            git = {
+              unstaged = "✗",
+              staged = "✓",
+              unmerged = "",
+              renamed = "➜",
+              untracked = "★",
+              deleted = "",
+              ignored = "◌",
+            },
           },
         },
-      },
-        }
+      }
     })
     -- keymapping
-    vim.keymap.set("n", "<C-n>", require("nvim-tree.api").tree.toggle, {
-      silent=true,
-      desc="toggle nvim-tree"
+    vim.keymap.set("n", "<leader>n", require("nvim-tree.api").tree.toggle, {
+      silent = true,
+      desc = "toggle nvim-tree"
     })
   end
 }
@@ -99,4 +99,3 @@ return {
 -- keymap.set("n", "<C-t>", require("nvim-tree.api").tree.toggle_gitignore_filter, {
 --   desc="toggle gitignore filter"
 -- })
-

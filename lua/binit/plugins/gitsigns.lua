@@ -1,10 +1,10 @@
 return {
-    -- Adds git related signs to the gutter, as well as utilities for managing changes
-    'lewis6991/gitsigns.nvim',
-    config =function()
-      local gs = require("gitsigns")
+  -- Adds git related signs to the gutter, as well as utilities for managing changes
+  'lewis6991/gitsigns.nvim',
+  config = function()
+    local gs = require("gitsigns")
 
-    gs.setup{
+    gs.setup {
       signs = {
         add = { text = '+' },
         change = { text = '~' },
@@ -44,7 +44,7 @@ return {
 
         -- Actions
         -- visual mode
-       map('v', '<leader>hs', function()
+        map('v', '<leader>hs', function()
           gs.stage_hunk { vim.fn.line '.', vim.fn.line 'v' }
         end, { desc = 'stage git hunk' })
         map('v', '<leader>hr', function()
@@ -76,16 +76,15 @@ return {
 
 
 
-vim.api.nvim_create_autocmd('ColorScheme', {
-  pattern = "*",
-  callback = function()
-    vim.cmd [[
+    vim.api.nvim_create_autocmd('ColorScheme', {
+      pattern = "*",
+      callback = function()
+        vim.cmd [[
       hi GitSignsChangeInline gui=reverse
       hi GitSignsAddInline gui=reverse
       hi GitSignsDeleteInline gui=reverse
     ]]
-  end
-}) 
-    end,
+      end
+    })
+  end,
 }
-
