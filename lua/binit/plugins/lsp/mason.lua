@@ -5,11 +5,21 @@ return {
         "williamboman/mason-lspconfig.nvim",
         'hrsh7th/cmp-nvim-lsp', --
         'folke/neodev.nvim',
+        "SmiteshP/nvim-navic",
+        "SmiteshP/nvim-navbuddy"
     },
     config = function()
         require('neodev').setup()
         local mason = require("mason")
         local mason_lspconfig = require("mason-lspconfig")
+        local navbuddy = require("nvim-navbuddy")
+
+        navbuddy.setup()
+
+        local navic = require("nvim-navic")
+
+
+
         local servers = {
             lua_ls = {
                 Lua = {
@@ -24,7 +34,7 @@ return {
         }
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-        local on_attach = function(_, bufnr)
+        local on_attach = function(client, bufnr)
             local nmap = function(keys, func, desc)
                 if desc then
                     desc = 'LSP: ' .. desc
@@ -58,6 +68,11 @@ return {
             vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
                 vim.lsp.buf.format()
             end, { desc = 'Format current buffer with LSP' })
+
+            if client.server_capabilities.documentSymbolProvider then
+                navic.attach(client, bufnr)
+                navbuddy.attach(client, bufnr)
+            end
         end
 
 

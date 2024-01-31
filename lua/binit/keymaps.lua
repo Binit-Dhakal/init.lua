@@ -16,7 +16,7 @@ vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
 -- buffers related
 vim.keymap.set('n', '<Tab>', ':bnext<CR>', opts)
 vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', opts)
-vim.keymap.set('n', '<space>x', ':bdelete<CR>', opts)
+vim.keymap.set('n', '<space>x', ':<C-U>bprevious <bar> bdelete #<CR>', opts)
 
 
 -- Resize with arrow
