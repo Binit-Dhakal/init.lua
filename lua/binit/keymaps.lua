@@ -13,6 +13,12 @@ vim.keymap.set('n', '<C-j>', '<C-w>j', opts)
 vim.keymap.set('n', '<C-k>', '<C-w>k', opts)
 vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
 
+-- buffers related
+vim.keymap.set('n', '<Tab>', ':bnext<CR>', opts)
+vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', opts)
+vim.keymap.set('n', '<space>x', ':bdelete<CR>', opts)
+
+
 -- Resize with arrow
 vim.keymap.set('n', '<C-Up>', ':resize -2<CR>', opts)
 vim.keymap.set('n', '<C-Down>', ':resize +2<CR>', opts)
