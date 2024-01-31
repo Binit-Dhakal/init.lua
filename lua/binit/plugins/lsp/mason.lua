@@ -29,7 +29,9 @@ return {
             },
             ruff_lsp = {
             },
-            pyright = {}
+            pyright = {},
+            html = {},
+            tailwindcss = {}
             -- "ruff_lsp", "pyright"
         }
         local capabilities = vim.lsp.protocol.make_client_capabilities()
