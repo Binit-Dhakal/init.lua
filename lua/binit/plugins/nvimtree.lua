@@ -23,7 +23,7 @@ return {
       sync_root_with_cwd = true,
       update_focused_file = {
         enable = true,
-        update_root = false,
+        update_root = true,
       },
       view = {
         adaptive_size = false,
@@ -45,7 +45,7 @@ return {
       },
       renderer = {
         root_folder_label = false,
-        highlight_git = false,
+        highlight_git = true,
         highlight_opened_files = "none",
 
         indent_markers = {
@@ -90,6 +90,15 @@ return {
     vim.keymap.set("n", "<leader>n", require("nvim-tree.api").tree.toggle, {
       silent = true,
       desc = "toggle nvim-tree"
+    })
+
+    vim.keymap.set("n", "<C-g>", require("nvim-tree.api").tree.toggle_gitignore_filter, {
+      desc = "toggle gitignore filter"
+    })
+
+    vim.keymap.set("n", "<C-p>", require("nvim-tree.api").node.navigate.parent, {
+      desc = "navigate to [P]arent Directory"
+
     })
   end
 }

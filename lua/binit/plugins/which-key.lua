@@ -7,7 +7,7 @@ return {
   end,
 
   config = function()
-    which_key = require("which-key")
+    local which_key = require("which-key")
     which_key.register({
       ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
       ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },

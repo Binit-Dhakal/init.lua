@@ -9,7 +9,9 @@ return {
 
         autopairs.setup({
             check_ts = true, -- enable treesitter
+            enable_check_bracket_line = false
         })
+
 
         -- import nvim-autopairs completion functionality
         local cmp_autopairs = require("nvim-autopairs.completion.cmp")

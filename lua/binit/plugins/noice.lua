@@ -24,7 +24,18 @@ return {
       },
       notify = {
         enabled = false,
+      },
+      popupmenu = {
+        enabled = false
       }
+
+      -- messages = {
+      --   enable = false
+      -- },
+      -- cmdline = {
+      --
+      --   enabled = false
+      -- }
     })
   end
 

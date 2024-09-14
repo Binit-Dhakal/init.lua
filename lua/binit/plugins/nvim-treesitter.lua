@@ -9,9 +9,9 @@ return {
     local treesitter = require("nvim-treesitter.configs")
 
     treesitter.setup({
-      ensure_installed = { "lua", "python", "javascript", "typescript", "vim", "regex", "bash", "markdown", "markdown_inline" },
-
+      ensure_installed = { "lua", "python", "javascript", "typescript", "go", "vim", "regex", "bash", "markdown", "markdown_inline" },
       auto_install = true,
+      sync_install = false,
 
       autotag = {
         enable = true,
@@ -20,6 +20,7 @@ return {
       highlight = {
         enable = true,
         use_languagetree = true,
+        additional_vim_regex_highlighting = false
       },
       incremental_selection = {
         enable = true,
