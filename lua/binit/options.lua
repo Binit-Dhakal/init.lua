@@ -22,3 +22,10 @@ vim.opt.incsearch = true  -- search as characters are entered
 vim.opt.hlsearch = false  -- donot highlight matches
 vim.opt.ignorecase = true -- ignore case in searches by default
 vim.opt.smartcase = true  -- but make it case sensitive if uppercase is entered
+
+vim.api.nvim_create_user_command('Exec', function()
+    vim.cmd('set splitbelow')
+    vim.cmd('new')
+    vim.cmd('set filetype=sh')
+    vim.cmd('read !sh #')
+end, {})

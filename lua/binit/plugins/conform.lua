@@ -13,7 +13,9 @@ return {
         python = { 'ruff' },
         html = { 'prettierd', 'prettier' },
         htmldjango = { 'djlint' },
-        go = { 'goimports-reviser', 'gofumpt' }
+        go = { 'goimports-reviser', 'gofumpt' },
+        template = { 'djlint' },
+        sql = { 'pg_format' },
       },
 
       format_on_save = {

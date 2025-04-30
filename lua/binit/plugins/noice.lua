@@ -26,7 +26,7 @@ return {
         enabled = false,
       },
       popupmenu = {
-        enabled = false
+        enabled = true
       }
 
       -- messages = {

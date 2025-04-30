@@ -30,10 +30,14 @@ return {
             ruff_lsp = {
             },
             pyright = {},
-            html = {},
-            tailwindcss = {}
-            -- "ruff_lsp", "pyright"
+            html = { filetype = { "html", "css", "tmpl" } },
+            tailwindcss = {},
+            gopls = {},
+            clangd = {},
+            ts_ls = { preferences = { disableSuggestions = true } },
+            volar = { filetype = { "vue" } },
         }
+
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
         local on_attach = function(client, bufnr)

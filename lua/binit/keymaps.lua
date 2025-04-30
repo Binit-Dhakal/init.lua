@@ -25,6 +25,13 @@ vim.keymap.set('n', '<C-Down>', ':resize +2<CR>', opts)
 vim.keymap.set('n', '<C-Left>', ':vertical resize -2<CR>', opts)
 vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 
+-- dadbod
+vim.api.nvim_set_keymap('n', '<Leader>U', '<Plug>(DBUI_ExecuteQuery)', { noremap = false, silent = true })
+vim.api.nvim_set_keymap('v', '<Leader>U', '<Plug>(DBUI_ExecuteQuery)', { noremap = false, silent = true })
+
+
+
+
 
 -----------------
 -- Visual Mode --
